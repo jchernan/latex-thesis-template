@@ -1,0 +1,70 @@
+\chapter{Tables} \label{tables}
+
+This chapter presents examples of how to include tables. Table \ref{onecolumn} shows a one column
+table while table \ref{twocolumn} shows a two column table.
+
+\begin{table}[ht]
+\caption{Example of a one column table}
+\begin{center}
+\begin{tabular}{| l |}
+	\hline 
+	\multicolumn{1}{| c |}{Camera} \\
+	\hline \hline
+	\texttt{startCapturing} \\
+	\texttt{startCalibration} \\
+	\texttt{grabImage}	\\
+	\texttt{getWidth} \\
+	\texttt{getHeight} \\
+	\texttt{getTimestamp} \\
+	\texttt{getFrameRate} \\
+	\hline
+\end{tabular}
+\end{center}
+\label{onecolumn}
+\end{table}
+
+\begin{table}[ht]
+\caption{Example of a two column table}
+\begin{center}
+\begin{tabular}{| l | l |}
+	\multicolumn{2}{c}{Color Model} \\
+	\hline 
+	Color Model 		& Description \\
+	\hline \hline
+	\texttt{BGR} 		& Blue-Green-Red channels \\
+	\texttt{BGRA} 		& Blue-Green-Red-Alpha channels \\
+	\texttt{RGB}	 	& Red-Green-Blue channels \\
+	\texttt{RGBA}	 	& Red-Green-Blue-Alpha channels \\
+	\texttt{GRAY}	 	& Grayscale channel \\
+	\hline
+\end{tabular}
+\end{center}
+\label{twocolumn}
+\end{table}
+
+Finally, Table \ref{algorithm} shows how can a table be used to describe an algorithm.
+
+\begin{table}[ht]
+\caption{Example of using a table to describe an algorithm}
+\begin{center}
+\begin{tabular}{ l l }
+\hline
+\multicolumn{2}{l}{\texttt{CALIBRATE (currentImages, requiredImages):}} \\
+1 & \texttt{{\bf If} (currentImages < requiredImages)} \\
+2 & \hspace{0.6cm} \texttt{\bf Then:} \\
+3 & \hspace{1.2cm} \texttt{Search checkerboard pattern in color image;} \\
+4 & \hspace{1.2cm} \texttt{Search checkerboard pattern in amplitude image;} \\
+5 & \hspace{1.2cm} \texttt{{\bf If} the pattern is found in both images} \\
+6 & \hspace{1.8cm} \texttt{\bf Then:} \\
+7 & \hspace{2.4cm} \texttt{Extract corners from color image and save them;} \\
+8 & \hspace{2.4cm} \texttt{Extract corners from amplitude image and save them;} \\
+9 & \hspace{2.4cm} \texttt{Increment currentImages counter;} \\
+10 & \hspace{0.6cm} \texttt{\bf Else:} \\
+11 & \hspace{1.2cm} \texttt{Run color camera calibration with saved corners;} \\
+12 & \hspace{1.2cm} \texttt{Run depth camera calibration with saved corners;} \\
+13 & \hspace{1.2cm} \texttt{Compute relative transformation with computed parameters;} \\
+\hline
+\end{tabular}
+\end{center}
+\label{algorithm}
+\end{table}

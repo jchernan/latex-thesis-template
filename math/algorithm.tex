@@ -1,0 +1,42 @@
+The goal of the depth-color fusion algorithm is to find the correspondences between the pixels of a depth 
+image and the pixels of a color image that have been acquired with a depth-color camera setup like the one 
+described in Section \ref{cameras}. The first step of the algorithm is to retrieve the intrinsic and extrinsic 
+parameters from both cameras. This is achieved by performing synchronized camera calibration. 
+
+Given the cameras' parameters, the next step computes the relative transformation between the depth 
+and color cameras, which is described in terms of a rotation and a translational offset. The relative 
+transformation is used to transform world points in the depth camera's coordinate system to world points in
+the color camera's coordinate system. The correspondences between points in the depth image and points 
+in the color image are retrieved from an image point to world point transformation, followed by a world point 
+to image point transformation.
+
+
+\subsection{Cameras Calibration} \label{camerascalibration}
+
+
+The depth and color cameras need to be calibrated in order to retrieve their intrinsic and extrinsic 
+parameters. Since the goal is to find how the cameras are positioned and oriented one with respect to the 
+other, the calibration of the cameras needs to be performed synchronously. In other words, there needs
+to exist a positional correspondence between the calibration images taken with both cameras. This is 
+achieved by setting the calibration pattern in a fixed position with respect to the camera setup and capturing 
+one image from each camera at the same time. The two synchronized images are called an 
+\textit{image pair} (see Figure \ref{imagepair}). 
+
+\begin{figure}[t]
+	\center
+	\includegraphics[width = 15cm]{imagepair.png}
+	\caption[Example of a calibration image pair]{Example of a calibration image pair. An image pair is 
+	composed of a color image (left) and an amplitude image from the depth camera (right).}
+	\label{imagepair}
+\end{figure}
+
+As observed in Figure \ref{imagepair}, the image pair consists of a color image and an amplitude image. 
+Since the amplitude image is visually similar to a grayscale image, it is possible to use it in the calibration 
+process to find the calibration pattern. The colored circles in the figure indicate the location of the corners
+in the pattern (see Section \ref{calibrationtool}). Besides knowing the correspondence between the images 
+in an image pair, the synchronized calibration algorithm needs to know the correspondence between the 
+calibration points in the two images.
+
+
+
+

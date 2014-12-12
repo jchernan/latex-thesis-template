@@ -1,0 +1,41 @@
+\documentclass[12pt,twoside]{mit-template/mitthesis}
+
+\usepackage{graphicx}
+\usepackage[adobe-utopia]{mathdesign}
+\usepackage{graphviz}
+\usepackage{url}
+\usepackage{amsmath}
+
+% Remove footnote counter reset
+\usepackage{remreset}
+\makeatletter\@removefromreset{footnote}{chapter}\makeatother
+
+% Enable hyper links inside the document
+\usepackage[colorlinks=true,
+linkcolor=black,
+citecolor=black,
+urlcolor=black]{hyperref}
+
+\pagestyle{plain}
+
+% Image directories
+\graphicspath{{./images/img/}{./appendix/img/}}
+
+\begin{document}
+
+\include{content/cover}
+\pagestyle{plain}
+\include{content/contents}
+
+\include{content/introduction}
+\include{images/images}
+\include{tables/tables}
+\include{math/math}
+\include{content/conclusion}
+
+\appendix
+\include{appendix/appendix}
+
+\include{content/bibliography}
+	 
+\end{document}
